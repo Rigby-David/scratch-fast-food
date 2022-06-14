@@ -5,12 +5,15 @@ import ChickenDropdown from './ChickenDropdown';
 import DrinkDropdown from './DrinkDropdown';
 import SideDropdown from './SideDropdown';
 import OrderImages from './OrderImages';
+import OrderNameInput from './OrderNameInput';
 
 function App() {
   // track state here
   const [chickenId, setChickenId] = useState(1);
   const [sideId, setSideId] = useState(1);
   const [drinkId, setDrinkId] = useState(1);
+  const [orderName, setOrderName] = useState('');
+
 
   return (
     <div className="App">
@@ -19,6 +22,10 @@ function App() {
       <h1>
         Welcome to David's Hot Chicken!
       </h1>
+      <h2>
+        {orderName}'s order
+      </h2>
+      <OrderNameInput setOrderName={setOrderName} />
       <div>
         <section className='dropdowns'>
           <ChickenDropdown setChickenId={setChickenId} />
