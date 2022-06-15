@@ -7,6 +7,8 @@ import SideDropdown from './SideDropdown';
 import OrderImages from './OrderImages';
 import OrderNameInput from './OrderNameInput';
 import InstructionForm from './InstructionForm';
+import InstructionsList from './InstructionsList';
+
 
 function App() {
   // track state here
@@ -15,20 +17,20 @@ function App() {
   const [drinkId, setDrinkId] = useState(1);
   const [orderName, setOrderName] = useState('');
   const [instructions, setInstructions] = useState([]);
-  const [formInstruction, setFormInstruction] = useState('');
+  // const [formInstruction, setFormInstruction] = useState('');
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  // function handleSubmit(e) {
+  //   e.preventDefault();
 
-    setInstructions([...instructions, formInstruction]);
+  //   setInstructions([...instructions, formInstruction]);
 
-    setFormInstruction('');
-  }
+  //   setFormInstruction('');
+  // }
 
   return (
     <div className="App">
       {/* order name here */}
-      <OrderImages chickenId={chickenId} sideId={sideId} drinkId={drinkId} instructions={instructions} />
+      <OrderImages chickenId={chickenId} sideId={sideId} drinkId={drinkId} />
       <h1>
         Welcome to David's Hot Chicken!
       </h1>
@@ -43,7 +45,8 @@ function App() {
           <SideDropdown setSideId={setSideId} />
         </section>
         {/* insturctions Form here */}
-        <InstructionForm handleSubmit={handleSubmit} setFormInstruction={setFormInstruction} formInstruction={formInstruction} />
+        <InstructionForm setInstructions={setInstructions} instructions={instructions} />
+        <InstructionsList instructions={instructions} />
       </div>
     </div>
   );
