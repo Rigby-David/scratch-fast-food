@@ -17,15 +17,15 @@ function App() {
   const [drinkId, setDrinkId] = useState(1);
   const [orderName, setOrderName] = useState('');
   const [instructions, setInstructions] = useState([]);
-  // const [formInstruction, setFormInstruction] = useState('');
+  const [formInstruction, setFormInstruction] = useState('');
+  
+    
+  function handleSubmit(e) {
+    e.preventDefault();
 
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-
-  //   setInstructions([...instructions, formInstruction]);
-
-  //   setFormInstruction('');
-  // }
+    setInstructions([...instructions, formInstruction]);
+    setFormInstruction('');
+  }
 
   return (
     <div className="App">
@@ -45,7 +45,7 @@ function App() {
           <SideDropdown setSideId={setSideId} />
         </section>
         {/* insturctions Form here */}
-        <InstructionForm setInstructions={setInstructions} instructions={instructions} />
+        <InstructionForm formInstruction={formInstruction} setFormInstruction={setFormInstruction} handleSubmit={handleSubmit} />
         <InstructionsList instructions={instructions} />
       </div>
     </div>
